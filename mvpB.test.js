@@ -15,6 +15,11 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] sum('10', '3') // returns 13
   */
 
+  test("sum function", () => {
+    const result = 4
+    expect(sum(1, 3)).toEqual(result)
+  })
+
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
 
@@ -29,8 +34,45 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
   */
+
+  test('renders a link that reads "Home"', () => {
+    render(<HelloWorld />);
+    const homeLink = screen.queryByText('Home');
+    expect(homeLink).toBeInTheDocument();
+  });
+
+  test('renders a link that reads "About"', () => {
+    render(<HelloWorld />);
+    const aboutLink = screen.queryByText('About');
+    expect(aboutLink).toBeInTheDocument();
+  });
+
+  test('renders a link that reads "Blog"', () => {
+    render(<HelloWorld />);
+    const blogLink = screen.queryByText('Blog');
+    expect(blogLink).toBeInTheDocument();
+  });
+
+  test('renders a text that reads "The Truth"', () => {
+    render(<HelloWorld />);
+    const truthText = screen.queryByText('The Truth');
+    expect(truthText).toBeInTheDocument();
+  });
+
+  test('renders a text that reads "JavaScript is pretty awesome"', () => {
+    render(<HelloWorld />);
+    const awesomeText = screen.queryByText('JavaScript is pretty awesome');
+    expect(awesomeText).toBeInTheDocument();
+  });
+
+  test('renders a text that includes "JavaScript is pretty" (use exact = false)', () => {
+    render(<HelloWorld />);
+    const partialText = screen.queryByText('JavaScript is pretty', { exact: false });
+    expect(partialText).toBeInTheDocument();
+  });
+
   test('you can comment out this test', () => {
-    expect(true).toBe(false)
+    expect(true).toBe(true)
   })
 })
 
